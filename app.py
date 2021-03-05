@@ -18,10 +18,10 @@ def home():
 def read_articles():
     # 1. mongoDB에서 _id 값을 제외한 모든 데이터 조회해오기 (Read)
     regionCd_receive = request.args.get('regionCd')
-    print(regionCd_receive)
+    # print(regionCd_receive)
 
     result = list(db.river.find({'regionCd':regionCd_receive}, {'_id': 0}))
-    print(result)
+    # print(result)
 
     # 2. articles라는 키 값으로 article 정보 보내주기
     return jsonify({'result': 'success', 'articles': result})
