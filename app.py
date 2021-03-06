@@ -28,7 +28,7 @@ def read_articles():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5001, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
 
     # 서버를 html불러와서 띄움
 # IF~ 는 맨 뒷쪽에 와아ㅑ함 규칙  __NAME__같은게 뒤에있어야 에러날 확률낮아짐
