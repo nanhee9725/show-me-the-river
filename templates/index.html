@@ -18,7 +18,6 @@
 
     <!-- 구글폰트 -->
     <!--    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">-->
-    <link rel="stylesheet" href="./style.css" type="text/css">
 
     <title>우리나라 강과 여행지/내가만듬</title>
 
@@ -47,7 +46,7 @@
         }
 
         .wrap {
-            width: 1600px;
+            width: 1200px;
             margin: auto;
         }
 
@@ -90,7 +89,8 @@
                             imgUrl = 'https://mblogthumb-phinf.pstatic.net/MjAxNzEyMTVfMjM1/MDAxNTEzMzM1MTIzMTE0._OQce1pfXU_TadhHJm8RjvAhQu4tMY8KJ4CJYCqBdw0g.ycx3uZ_-TG7mZ99exrjgnEclD9VAMqQGzuAgPTNmDDog.JPEG.nakdong0/1.JPG?type=w2'
                         } else if (articles[i]['regionCd'] == 'SJ') {
                             imgUrl = 'http://ojsfile.ohmynews.com/STD_IMG_FILE/2017/0802/IE002197330_STD.jpg'
-                        } else if (articles[i]['regionCd'] == 'YS') {
+                        }
+                        else if (articles[i]['regionCd'] == 'YS') {
                             imgUrl = 'http://cmsi.co.kr/wp-content/uploads/2018/10/project-06.jpg'
                         }
 
@@ -135,17 +135,21 @@
 <div class="wrap">
     <div class="jumbotron">
         <h1 class="display-4">우리나라 강과 함께하는 여행지</h1>
-        <p class="lead">강 주변의 여행지를 알아보아요</p>
         <hr class="my-4">
-        <p class="lead">
+        <p class="lead">강 주변의 여행지를 알아보아요</p>
+    </div>
+
+    <div>
+       <p class="lead">
             <button onclick="showArticles('HA')" type="button" class="btn btn-primary">한강</button>
             <button onclick="showArticles('GU')" type="button" class="btn btn-primary">금강</button>
             <button onclick="showArticles('ND')" type="button" class="btn btn-primary">낙동강</button>
             <button onclick="showArticles('SJ')" type="button" class="btn btn-primary">섬진강</button>
             <button onclick="showArticles('YS')" type="button" class="btn btn-primary">영산강</button>
-
         </p>
     </div>
+
+
     <div id="post-box" class="form-post" style="display:none">
         <div>
             <div class="form-group">
@@ -166,7 +170,7 @@
                  alt="Card image cap">
             <div class="card-body">
                 <a href="#" class="card-title">title(지역코드 선택 후 강 제목들어갈 곳)</a>
-                <p class="card-text">inrto(설명이 들어갈 곳)</p>
+                <p class="card-text">intro(설명이 들어갈 곳)</p>
                 <p class="card-text comment">여기에 무엇을 넣을까</p>
             </div>
         </div>
