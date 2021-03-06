@@ -17,16 +17,38 @@
             crossorigin="anonymous"></script>
 
     <!-- 구글폰트 -->
-    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+    <!--    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">-->
+    <link rel="stylesheet" href="./style.css" type="text/css">
 
-
-    <title>스파르타코딩클럽 | 나홀로 메모장</title>
+    <title>우리나라 강과 여행지/내가만듬</title>
 
 
     <!-- style -->
     <style type="text/css">
-        * {
-            font-family: 'Stylish', sans-serif;
+        @font-face {
+            font-family: 'NEXON Lv1 Gothic OTF';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+
+        body {
+            font-family: "NEXON Lv1 Gothic OTF", serif
+        }
+
+        /** {*/
+        /*    font-family: 'NEXON Lv1 Gothic OTF', serif;*/
+        /*}*/
+
+        .card-title {
+            color: dimgray;
+            font-weight: bold;
+        }
+
+        .card-text {
+            color: cornflowerblue;
+            font-weight: bold;
         }
 
         .wrap {
@@ -35,8 +57,8 @@
         }
 
         .comment {
-            color: blue;
-            font-weight: bold;
+            color: black;
+            font-weight: 1;
         }
 
         #post-box {
@@ -73,8 +95,7 @@
                             imgUrl = 'https://mblogthumb-phinf.pstatic.net/MjAxNzEyMTVfMjM1/MDAxNTEzMzM1MTIzMTE0._OQce1pfXU_TadhHJm8RjvAhQu4tMY8KJ4CJYCqBdw0g.ycx3uZ_-TG7mZ99exrjgnEclD9VAMqQGzuAgPTNmDDog.JPEG.nakdong0/1.JPG?type=w2'
                         } else if (articles[i]['regionCd'] == 'SJ') {
                             imgUrl = 'http://ojsfile.ohmynews.com/STD_IMG_FILE/2017/0802/IE002197330_STD.jpg'
-                        } else if(articles[i]['regionCd'] == 'YS')
-                        {
+                        } else if (articles[i]['regionCd'] == 'YS') {
                             imgUrl = 'http://cmsi.co.kr/wp-content/uploads/2018/10/project-06.jpg'
                         }
 
