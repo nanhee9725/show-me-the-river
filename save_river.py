@@ -8,7 +8,7 @@ from pymongo import MongoClient
 import xmltodict
 client = MongoClient('localhost', 27017)
 db = client.dbsparta
-url = "http://opendata.kwater.or.kr/openapi-data/service/pubd/myportal/travel/list?searchTypeCd=02&regionCd=GU&numOfRows=1000&pageNo=1&serviceKey=imG5GZCUuCRZfkWsdGDQoX8j7OAfiwXFC%2BippX80egTFswLEMUUFv8kdFk2p%2BkRcTBXQUcHWNGfgN83SBpP9RA%3D%3D"
+url = "http://opendata.kwater.or.kr/openapi-data/service/pubd/myportal/travel/list?searchTypeCd=02&regionCd=ND&numOfRows=1000&pageNo=1&serviceKey=imG5GZCUuCRZfkWsdGDQoX8j7OAfiwXFC%2BippX80egTFswLEMUUFv8kdFk2p%2BkRcTBXQUcHWNGfgN83SBpP9RA%3D%3D"
 response = requests.get(url)
 
 # url = 'http://opendata.kwater.or.kr/openapi-data/service/pubd/myportal/travel/list'
