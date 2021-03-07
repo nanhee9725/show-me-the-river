@@ -57,8 +57,13 @@
 
         .top_button {
             width: 1000px;
-            padding: 10px;
+            padding-top: 10px;
+            padding-left: 10px;
             border-bottom: black;
+        }
+
+        .river-button {
+            width: 150px;
         }
 
         /*.mainimg {*/
@@ -74,6 +79,11 @@
 
         .qbutton {
             border: 0px;
+        }
+
+        .jumbotron {
+            background-image: url('https://c.wallhere.com/photos/e9/e0/steg_ambach_fischmeister_kirche_starnbergersee_spiegelung_m_rz_fr_hlling-601819.jpg!d');
+            background-size: 100%;
         }
 
 
@@ -93,7 +103,8 @@
     <script>
         $(document).ready(function () {
             $("#cards-box").html("");
-            showArticles();
+            showArticles('ALL');
+            // HA, 5개 데이터 가져오기
         });
 
         function showArticles(regionCd) {
@@ -140,7 +151,7 @@
 
 
         function qbutton() {
-            alert('[도움말]강 버튼을 눌러보세요. 우리나라의 명소들을 볼 수 있습니다.');
+            alert('강 위치 \n\n[한강] 서울 영등포구 여의도동. \n[금강] 전북 무주 부남면. \n[낙동강] 경북 구미시 임수동. \n[섬진강] 전남 광양시 다압면. \n[영산강] 전남 담양군 수북면 개동리.');
         }
 
 
@@ -168,22 +179,22 @@
         <h1 class="display-4">우리나라 물과 여행</h1>
         <h1 class="lead">강 주변의 명소를 방문해보세요
             <button onclick="qbutton()" class="qbutton" id="img_btn"><img
-                    src="https://search.pstatic.net/sunny/?src=https%3A%2F%2Fmedia.istockphoto.com%2Fvectors%2Fquestion-mark-icon-vector-id1165322616%3Fk%3D6%26m%3D1165322616%26s%3D170667a%26w%3D0%26h%3DYIqscvLJP8Y7BwNWKjxBIiPLY9GyaHX9cJ_Rs2I9yNI%3D&type=sc960_832"
+                    src="https://www.flaticon.com/svg/vstatic/svg/592/592245.svg?token=exp=1615052591~hmac=d2b9b5a0ca042abf39fe71ffd2f80460"
                     height="50px" width="50px"></button>
         </h1>
-        <hr class="my-4">
+        <!--        <hr class="my-4">-->
     </div>
 
     <div class="top_button">
-        <button onclick="showArticles('HA')" type="button" class="btn btn-primary btn-lg btn btn-outline-primary">한강
+        <button onclick="showArticles('HA')" type="button" class="river-button tn btn-primary btn-lg btn btn-outline-primary">한강
         </button>
-        <button onclick="showArticles('GU')" type="button" class="btn btn-primary btn-lg btn btn-outline-primary">금강
+        <button onclick="showArticles('GU')" type="button" class="river-button btn btn-primary btn-lg btn btn-outline-primary">금강
         </button>
-        <button onclick="showArticles('ND')" type="button" class="btn btn-primary btn-lg btn btn-outline-primary">낙동강
+        <button onclick="showArticles('ND')" type="button" class="river-button btn btn-primary btn-lg btn btn-outline-primary">낙동강
         </button>
-        <button onclick="showArticles('SJ')" type="button" class="btn btn-primary btn-lg btn btn-outline-primary">섬진강
+        <button onclick="showArticles('SJ')" type="button" class="river-button btn btn-primary btn-lg btn btn-outline-primary">섬진강
         </button>
-        <button onclick="showArticles('YS')" type="button" class="btn btn-primary btn-lg btn btn-outline-primary">영산강
+        <button onclick="showArticles('YS')" type="button" class="river-button btn btn-primary btn-lg btn btn-outline-primary">영산강
         </button>
     </div>
 

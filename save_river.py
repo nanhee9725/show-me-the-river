@@ -6,35 +6,40 @@ import requests
 from flask import json
 from pymongo import MongoClient
 import xmltodict
+
 client = MongoClient('localhost', 27017)
 db = client.dbsparta
-url = "http://opendata.kwater.or.kr/openapi-data/service/pubd/myportal/travel/list?searchTypeCd=02&regionCd=YS&numOfRows=1000&pageNo=1&serviceKey=imG5GZCUuCRZfkWsdGDQoX8j7OAfiwXFC%2BippX80egTFswLEMUUFv8kdFk2p%2BkRcTBXQUcHWNGfgN83SBpP9RA%3D%3D"
-response = requests.get(url)
 
-# url = 'http://opendata.kwater.or.kr/openapi-data/service/pubd/myportal/travel/list'
-# # request 할 때 필요한 parameter
-# params = {'searchTypeCd': '01', 'regionCd': 'HA', 'numOfRows': '1000', 'pageNo': '1', 'serviceKey': 'imG5GZCUuCRZfkWsdGDQoX8j7OAfiwXFC%2BippX80egTFswLEMUUFv8kdFk2p%2BkRcTBXQUcHWNGfgN83SBpP9RA%3D%3D'}
-# response = requests.get(url, params=params)
+db.river.drop()
 
-result = json.loads(json.dumps(xmltodict.parse(response.text)))
-print(result)
-items = result['response']['body']['items']['item']
+REGION_CODE = ['HA', 'GU', 'ND', 'SJ', 'YS']
+# SEARCH_TYPES = ['01', '02']
+SEARCH_TYPES = ['02']
+# url = "http://opendata.kwater.or.kr/openapi-data/service/pubd/myportal/travel/list?searchTypeCd=02&regionCd=YS&numOfRows=1000&pageNo=1&serviceKey=imG5GZCUuCRZfkWsdGDQoX8j7OAfiwXFC%2BippX80egTFswLEMUUFv8kdFk2p%2BkRcTBXQUcHWNGfgN83SBpP9RA%3D%3D"
 
+for search_type in SEARCH_TYPES:
+    for region_cd in REGION_CODE:
+        # url = "http://opendata.kwater.or.kr/openapi-data/service/pubd/myportal/travel/list?searchTypeCd=02&regionCd="+ region_cd + "&numOfRows=1000&pageNo=1&serviceKey=imG5GZCUuCRZfkWsdGDQoX8j7OAfiwXFC%2BippX80egTFswLEMUUFv8kdFk2p%2BkRcTBXQUcHWNGfgN83SBpP9RA%3D%3D"
+        url = "http://opendata.kwater.or.kr/openapi-data/service/pubd/myportal/travel/list?searchTypeCd="+ search_type + "&regionCd=" + region_cd + "&numOfRows=1000&pageNo=1&serviceKey=imG5GZCUuCRZfkWsdGDQoX8j7OAfiwXFC%2BippX80egTFswLEMUUFv8kdFk2p%2BkRcTBXQUcHWNGfgN83SBpP9RA%3D%3D"
+        response = requests.get(url)
 
-print(items)
-for item in items:
-    print(item)
-    # print(item['course'])
-    doc = {
-        'searchType': item['searchType'],
-        'region': item['region'],
-        'regionCd': item['regionCd'],
-        'title': item['title'],
-        'intro': item['intro'],
-        # 'course': item['course'],
-    }
+        result = json.loads(json.dumps(xmltodict.parse(response.text)))
+        print(result)
+        items = result['response']['body']['items']['item']
 
-    db.river.insert_one(doc)
+        print(items)
+        for item in items:
+            print(item)
+            # print(item['course'])
+            doc = {
+                'searchType': item['searchType'],
+                'region': item['region'],
+                'regionCd': item['regionCd'],
+                'title': item['title'],
+                'intro': item['intro'],
+                # 'course': item['course'],
+            }
+            db.river.insert_one(doc)
 
     # import pickle
     # with open('items','wb') as file:
@@ -62,4 +67,3 @@ for item in items:
     #     print(title)
     #     print(intro)
     #     print(course)
-

@@ -20,8 +20,25 @@ def read_articles():
     regionCd_receive = request.args.get('regionCd')
     # print(regionCd_receive)
 
-    result = list(db.river.find({'regionCd':regionCd_receive}, {'_id': 0}))
-    # print(result)
+    result = []
+
+    if regionCd_receive == 'ALL':
+        result1 = list(db.river.find({'regionCd': 'HA'}, {'_id': 0}, limit=5))
+        result2 = list(db.river.find({'regionCd': 'GU'}, {'_id': 0}, limit=5))
+        result3 = list(db.river.find({'regionCd': 'ND'}, {'_id': 0}, limit=5))
+        result4 = list(db.river.find({'regionCd': 'SJ'}, {'_id': 0}, limit=5))
+        result5 = list(db.river.find({'regionCd': 'YS'}, {'_id': 0}, limit=5))
+
+        result.extend(result1)
+        result.extend(result2)
+        result.extend(result3)
+        result.extend(result4)
+        result.extend(result5)
+
+        print(result)
+    else:
+        result = list(db.river.find({'regionCd':regionCd_receive}, {'_id': 0}))
+        # print(result)
 
     # 2. articles라는 키 값으로 article 정보 보내주기
     return jsonify({'result': 'success', 'articles': result})
